@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}
+<title>Administrator</title>
+{% endblock title%}
+{% block body %}
+  <div class="my-4"><h2>Update your Fleet of Cars</h2></div>
+  <form action="/admin/{{administrator.Id}}/update/{{todo.carNameID}}" method="POST">
+    <div class="mb-3">
+      <div class="row">
+        <div class="col-md-2"><label for="carname" class="form-label">Model Name</label></div>
+        <div class="col-md-2">
+            <input type="text" class="form-control" id="carname" name="carname"value="{{todo.carName}}" aria-describedby="emailHelp">
+         </div>
+        <div class="col-md-2"><label for="cartype"><h4>Car Type</h4></label></div>
+        <div class="col-md-2">
+          <select class="form-select" name="cartype" id="cartype">
+            <option selected>SELECT</option>
+            <option value="AC">AC</option>
+            <option value="NON AC">NON AC</option>
+          </select>
+        </div>
+        <div class="col-md-2"><label for="perHourCharge"><h4>Per hour charge (in Rupees):- </h4></label>
+        <input type="number" class="form-control" id="perHourCharge" name="perHourCharge"></div>
+        <div class="col-md-2"><label for="perKmCharge"><h4>Per kilometer charge (in Rupees):- </h4></label>
+        <input type="number" class="form-control" id="perKmCharge" name="perKmCharge"></div>
+        <div class="col-md-2"><label for="MMR"><h4>Initial mile meter reading:- </h4></label>
+        <input type="number" class="form-control" id="MMR" name="MMR"></div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Now</button>
+  </form>
+{% endblock body %}

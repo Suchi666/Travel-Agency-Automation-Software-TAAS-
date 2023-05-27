@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}
+<title>login form</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style3.css') }}">
+{% endblock title%}
+{% block body %}
+
+
+<form action="/check" method="POST">
+<label for="AC-NAC">Type: </label>
+<input type="text" id="type" name="type" value="{{type}}"  placeholder="AC/NON-AC" /><br><br>
+<label for="start_time">End Date and Time: </label>
+<input type="datetime-local" class="form-control" name="start_time" value="{{start_time}}" id="start_time"><br><br>
+<label for="end_time">End Date and Time: </label>
+<input type="datetime-local" class="form-control" name="end_time"  value="{{end_time}}" id="end_time"><br><br>
+<button type="submit" id="create" class="submit_btn" >Check</button>
+<form>
+
+{% if cars_available|length==0 %}
+        No car available
+      {% else %} 
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">SNo</th>
+            <th scope="col">Car Number</th>
+            <th scope="col">Car name</th>
+            <th scope="col">Car Type</th>
+            <th scope="col">Actions</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+            {% for car in cars_available %}
+            <tr class="data">
+                <td scope="row">{{loop.index}}</th>
+                <td>{{car.carID}}</td>
+                <td>{{car.carName}}</td>
+                <td>{{car.carType}}</td>
+                
+                <td><a href="/book/{{car.carID}}"  class="btn btn-outline-dark btn-sm mx-1">Book Now</button></td>
+            {% endfor %}
+          
+          
+        </tbody>
+      </table>
+        
+      {% endif %}
+
+{% endblock body%}

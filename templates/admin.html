@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}
+<title>Administrator</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style3.css') }}">
+{% endblock title%}
+{% block body %}
+<div class="info_actions">
+  <div class="info">
+    <h2>User Id:- {{ administrator.Id}}</h2>
+    <h2>User Name:- {{administrator.name}}
+  </div>
+    <div><a href="/admin/{{administrator.Id}}/view_data" class="">View Cars</a></div>
+    <div><a href="/logout" class="">Logout</a></div>
+</div>
+
+<div class="table-name">
+        <h2>Cars available with our company</h2>
+      </div>
+
+      {% if carList|length==0 %}
+        No Table
+      {% else %} 
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">SNo</th>
+            <th scope="col">Model Name</th>
+            <th scope="col">AC</th>
+            <th scope="col">NON AC</th>
+            <th scope="col">Add</th>
+            <th scope="col">View Statistics</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for car in carList %}
+            <tr class="data">
+                <td scope="row">{{loop.index}}</th>
+                <td>{{car.carName}}</td>
+                <td>{{car.AC_num}}</td>
+                <td>{{car.nonAC_num}}</td>
+                <td><a href="/admin/{{administrator.Id}}/update/{{car.carNameID}}" class="btn btn-outline-dark btn-sm mx-1">Add</a></td>
+                <td><a href="/admin/{{administrator.Id}}/stats/{{car.carNameID}}" class="btn btn-outline-dark btn-sm mx-1">View Statistics</a></td>
+              </tr>
+            {% endfor %}
+          
+          
+        </tbody>
+      </table>
+        
+      {% endif %}
+      
+{% endblock body %}

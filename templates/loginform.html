@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}
+<title>login form</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style2.css') }}">
+{% endblock title%}
+{% block body %}
+<main>
+  <div class="signup">
+    <span>Not an Administrator?</span>
+    <button type="button" class="sign-up-btn">Sign Up</button>
+  </div>
+  <div class="login">
+    <span>Already have an account?</span>
+    <button type="button">Login</button>
+  </div>
+
+  <div class="back-layer">
+  <form action="/admin" method="POST" class="login-form active">
+      <h2 class="login-label">Login</h2>
+      <input type="text" id="id" name="id" placeholder="UserId" />
+      <input type="password" id="lpassword" name="lpassword" placeholder="Password" />
+      <button type="submit">Login</button>
+    </form> 
+    
+
+    <form action="/" method="POST" class="signup-form">
+      <h2>Sign Up</h2>
+      <input type="text" id="id" name="id" placeholder="User Id" />
+      <input type="text" id="name" name="name" placeholder="Name" />
+      <input type="email" id="email" name="email" placeholder="Email" />
+      <input type="tel" id="number" name="number" placeholder="Mobile number" />
+      <div class="pass">
+        <input id="pass" type="password" name="pass" placeholder="Enter Password" required"">
+        <input id="confirm_pass" type="password" name="confirm_pass" placeholder="Confirm Password" required onkeyup="validate_password()">
+      </div>
+      <span id="wrong_pass_alert"></span>
+      <button type="submit" id="create" class="submit_btn" onclick="wrong_pass_alert()">Submit</button>
+    </form>
+  </div>
+</main>
+<script src="{{ url_for('static', filename='JSfiles/script.js') }}"></script>
+<script src="{{ url_for('static', filename='JSfiles/script2.js') }}"></script>
+{% endblock body %}

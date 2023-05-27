@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}
+<title>Administrator</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style3.css') }}">
+{% endblock title%}
+{% block body %}
+<div class="info">
+  <h2>User Id:- {{ administrator.Id}}</h2>
+  <h2>User Name:- {{administrator.name}}
+</div>
+<form action="/admin/{{administrator.Id}}/stats/{{cartype.carNameID}}" method="POST">
+<br><br>
+<label for="year" class="form-label">Car Type</label>
+<select class="form-select" name="cartype" id="cartype">
+<option value="AC">AC</option>
+<option value="NON AC">NON AC</option>
+</select>
+<br><br>
+<label for="year" class="form-label">For the Year</label>
+<input type="text" class="form-control" name="year" id="year"><br><br>
+<button type="submit" id="check" class="submit_btn" >Check</button>
+</form>
+<img class="" src="{{ url_for('static', filename='img/graph1.png') }}" alt="Card image cap">
+{% endblock body %}

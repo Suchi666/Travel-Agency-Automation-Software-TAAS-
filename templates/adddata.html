@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}
+<title>Administrator</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style3.css') }}">
+{% endblock title%}
+{% block body %}
+{% if status==2 %}
+<form action="/admin/{{administrator.Id}}/adddata/{{bookingId}}" method="POST">
+<label for="startTime" class="form-label"><h4>Booking Id </h4></label>
+<input type="text" class="form-control" value="{{bookingId}}" name="bookingId" id="startTime">
+<label for="repair_price" class="form-label"><h4>Repair price </h4></label>
+<input type="text" class="form-control" name="repprice" id="startTime"></br>
+<button type="submit" id="create" class="submit_btn" >Add Price</button>
+<form>
+{% else %}
+<form action="/admin/{{administrator.Id}}/adddata/{{bookingId}}" method="POST">
+<div class="col-md-2"><label for="bookingId" class="form-label"><h4>Booking Id </h4></label></div>
+<div class="col-md-2"><input type="datetime-local" class="form-control" value="{{bookingId}}" name="bookingId" id="bookingId"></div>
+<div class="col-md-2"><label for="MMRstart" class="form-label"><h4>MMR start </h4></label></div>
+<div class="col-md-2"><input type="text" class="form-control" name="MMRstart" id="MMRstart"></div>
+<div class="col-md-2"><label for="MMRend" class="form-label"><h4>MMR end </h4></label></div>
+<div class="col-md-2"><input type="text" class="form-control" name="MMRend" id="MMRend"></div>
+<div class="col-md-2"><label for="fuel_price" class="form-label"><h4>Fuel price </h4></label></div>
+<div class="col-md-2"><input type="text" class="form-control" name="fuel_price" id="fuel_price"></div>
+<div class="col-md-2"><label for="fuel_consumed" class="form-label"><h4>Fuel consumed </h4></label></div>
+<div class="col-md-2"><input type="text" class="form-control" name="fuel_consumed" id="fuel_consumed"></div></br>
+<button type="submit" id="create" class="submit_btn">Add Price</button>
+<form>
+{% endif %}
+{% endblock body %}

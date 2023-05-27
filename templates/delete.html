@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}
+<title>Delete</title>
+{% endblock title%}
+{% block body %}
+<div class="my-4">
+  <h2>Update your Fleet of Cars</h2>
+</div>
+<form action="/admin/{{administrator.Id}}/delete/{{todo.carID}}" method="POST">
+  <div><label for="carname" class="form-label">Model Name</label>
+     <input type="text" class="form-control" id="carname" name="carname"value="{{todo.carName}}">
+  </div>
+  <div><label for="carname" class="form-label">Car Id</label>
+    <input type="text" class="form-control" id="carID" name="carID"value="{{todo.carID}}">
+  </div>
+<button type="submit" class="btn btn-primary">Delete Now</button>
+</form>
+    
+{% endblock body %}

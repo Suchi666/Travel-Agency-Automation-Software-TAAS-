@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}
+<title>Administrator</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style3.css') }}">
+{% endblock title%}
+{% block body %}
+  <div class="info">
+    <h2>User Id:- {{ administrator.Id}}</h2>
+    <h2>User Name:- {{administrator.name}}
+  </div>
+      {% if carData|length==0 %}
+        No car present initially
+      {% else %} 
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">SNo.</th>
+            <th scope="col">carID</th>
+            <th scope="col">Car Name</th>
+            <th scope="col">Car type</th>
+            <th scope="col">Per hour Charge</th>
+            <th scope="col">Per Km Charge</th>
+            <th scope="col">Mile Meter Reading</th>
+            <th scope="col">Price</th>
+            <th scope="col">Delete</th>
+            <th scope="col">Repair</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for car in carData %}
+            <tr class="data">
+                <td scope="row">{{loop.index}}</th>
+                <td>{{car.carID}}</td>
+                <td>{{car.carName}}</td>
+                <td>{{car.carType}}</td>
+                <td>{{car.perHourCharge}}</td>
+                <td>{{car.perKmCharge}}</td>
+                <td>{{car.MMR}}</td>
+                <td>{{car.price}}</td>
+                <td><a href="/admin/{{administrator.Id}}/delete/{{car.carID}}" class="btn btn-outline-dark btn-sm mx-1">Delete</a></td>
+                <td><a href="/admin/{{administrator.Id}}/repair/{{car.carID}}" class="btn btn-outline-dark btn-sm mx-1">Repair</a></td>
+              </tr>
+            {% endfor %}
+          
+          
+        </tbody>
+      </table>
+        
+      {% endif %}
+      
+{% endblock body %}

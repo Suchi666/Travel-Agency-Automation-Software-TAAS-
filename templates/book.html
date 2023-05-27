@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block title %}
+<title>Administrator</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style3.css') }}">
+{% endblock title%}
+{% block body %}
+<h2>Estimate price of rental</h2>
+
+      <form action="/book/{{carID}}" method="POST">
+      <div class="mb-3">
+        <div class="row">
+            <div class="col-md-2">
+                <label for="carname" class="form-label">Model Name</label>
+              </div>
+              <div class="col-md-2">
+                <input type="text" class="form-control" id="carname" name="carname"value="{{carname}}" aria-describedby="emailHelp">
+              </div>
+            <div class="col-md-2">
+              <label for="cartype"><h4>Car Type</h4></label>
+            </div>
+            <div class="col-md-2">
+                <input type="text" class="form-control" id="cartype" name="cartype"value="{{cartype}}" aria-describedby="emailHelp">
+            </div>
+            </div>
+    </div>
+
+    <div class="mb-3">
+        <div class="row">
+            <div class="col-md-2">
+                <label for="start_time" class="form-label">Rent Start Time</label>
+              </div>
+              <div class="col-md-2">
+                <input type="datetime-local" class="form-control" id="start_time" name="start_time" value="{{start_time}}"aria-describedby="emailHelp" readonly>
+              </div>
+            <div class="col-md-2">
+              <label for="end_time"><h4>Rent End Time</h4></label>
+            </div>
+            <div class="col-md-2 mb-3">
+                <input type="datetime-local" class="form-control" id="end_time" name="end_time"value="{{end_time}}" aria-describedby="emailHelp" readonly>
+            </div>
+            <div class="row">
+              <div class="col-md-3">
+                  <label for="estd_dis" class="form-label">Estimated distance of travel</label>
+                </div>
+                <div class="col-md-3">
+                  <input type="number" class="form-control" id="estd_dis" name="estd_dis" aria-describedby="emailHelp">
+                </div>
+            </div>
+            </form>
+            <button type="submit" class="btn btn-primary">Check price Now</button>
+
+            <div class="row">
+              <div class="col-md-3">
+                  <label for="check_price" class="form-label">Estimated price : </label>
+                </div>
+                <div class="col-md-3">
+                  <input type="number" class="form-control" id="check_price" name="check_price" value="{{cost}}"aria-describedby="emailHelp" readonly>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary"></a>Book Now</button>
+
+
+
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    {% endblock body %}

@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block title %}
+<title>home</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+{% endblock title%}
+
+{% block body %}
+<nav class="navbar">
+    <div class="title">
+        <h1>Travel Agency</h1>
+    </div>
+    <ul class="nav-items">
+        <li class="item"><a class="links" href="/" >Home</a></li>
+        <li class="item"><a class="links" href="/loginform" >Login</a></li>
+        <li class="item"><a class="links" href="/" >Contact us</a></li>
+    </ul>
+</nav>
+<div class="container home" id="home">
+<div class="column1">
+    <div class="desc">
+        <h1>Welcome to our travel agency website! </h1>
+        <p>We are a premier travel agency that specializes in providing our clients with the best car rental services for their trips. Whether you need a small car for a quick getaway or a luxurious SUV for a family vacation, we offer a variety of options to suit your needs. Our commitment to excellence and customer satisfaction ensures that your travel experience with us is always comfortable, convenient, and enjoyable. Thank you for choosing us as your travel partner.</p>
+    </div>
+    <div class="cars">
+    <h1>Cars available with us:-</h1>
+       <ul style='list-style-type:none'>
+       <li>Honda City</li>
+       <li>Tata Sumo</li>
+       <li>Maruti Omni</li>
+       <li>Maruti Dzire</li>
+       <li>Mahindra Bolero</li>
+       </ul>
+    </div>
+    <div class="order" id="order">
+        <div class="second-box">
+            <h1 class="second-block-link1">Check for yourself</h1>
+            <a class="links button1" href="/check" >Check avaibility and Place Order</a><br><br>
+            <h1 class="second-block-link2"> Already have an order placed, wanna return?<h1>
+            <a class="links button2" href="/return" >Return</a>
+        </div>
+    </div>    
+
+</div>
+<div class="column2">
+    <div class="terms_and_conditions" id="terms">    
+        <h3>TERMS AND CONDITIONS</h3>
+    
+         <p>1.All bookings must be made in advance through our website or by contacting our customer service team.</p>
+         <p>2.The minimum age for renting a car is 21 years old, and a valid driver's license and credit card are required.</p>
+         <p>3.We offer a variety of car rental options, and the type of vehicle rented is subject to availability.</p>
+         <p>5.The car must be returned to the specified location at the end of the rental period, and any delays may result in additional charges.</p>
+         <p>6.The client is responsible for any damage caused to the vehicle during the rental period, and additional charges may apply for repair or replacement.</p>
+         <p>7.Any traffic violations or fines incurred during the rental period are the responsibility of the client.</p>  
+         <p>8.We reserve the right to cancel or refuse any booking, and our terms and conditions are subject to change without notice.</p>   
+    </div>
+    <div class="contact" id="Contact">
+        <b>Contact Details</b>
+        <p>Suchi Sharma</p>
+        <P>7978774532</P>
+        <p>sharmasuchi333@gmail.com</p>
+    </div>
+</div>
+</div>
+
+
+
+
+{% endblock body %}
+
+
+
+
